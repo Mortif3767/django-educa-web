@@ -1,0 +1,4 @@
+Django==1.8.6
+django-braces==1.11.0
+olefile==0.44
+Pillow==4.3.0
