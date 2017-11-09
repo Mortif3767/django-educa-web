@@ -16,4 +16,8 @@ urlpatterns = [
 		views.ContentCreateUpdateView.as_view(), name='module_content_update'),
 	url(r'^content/(?P<id>\d+)/delete/$', views.ContentDeleteView.as_view(),
 		name='module_content_delete'),
+	url(r'^subject/(?P<subject>[-\w]+)/$', views.CourseListView.as_view(),
+		name='course_list_subject'),
+	url(r'^(?P<slug>[-\w]+)/$', views.CourseDetailView.as_view(),
+		name='course_detail'),
 ]
