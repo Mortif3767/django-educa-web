@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.template.loader import render_to_string
+from django.utils.safestring import mark_safe
 from .fields import OrderField
 
 
@@ -71,6 +73,11 @@ class ItemBase(models.Model):
 
     class Meta:
         abstract = True
+
+    def render(self):
+        return render_to_string('courses/content/{}.html'.format(
+                                self._meta.model_name), {'item': self})
+        #render_to_string(template_name[, context])
 
     def __str__(self):
         return self.title
