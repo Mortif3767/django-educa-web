@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'students',
     'embed_video',
     'memcache_status',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,6 +92,13 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
     }
+}
+
+#rest_framwork
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
 }
 
 # Internationalization
