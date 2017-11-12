@@ -131,7 +131,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
             if not id:
                 Content.objects.create(module=self.module, item=obje)
             return redirect('module_content_list', self.module.id)
-        return render_to_response({'form': form, 'object': self.obj})
+        return self.render_to_response({'form': form, 'object': self.obj})
 
 
 class ContentDeleteView(View):
